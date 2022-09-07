@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        /* 'filterModel' => $searchModel, */
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -34,7 +34,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'description',
             'units',
             'price',
-            'image',
+            [
+                'format' => 'html',
+                'value' => function($data) { return Html::img($data->image, ['width' => '60px']); },
+            ],
+            //'image',
             //'created_at',
             //'updated_at',
             //'deleted_at',

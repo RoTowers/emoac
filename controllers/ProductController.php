@@ -88,9 +88,10 @@ class ProductController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+        /* if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
-        }
+        } */
+        $this->uploadImage($model);
 
         return $this->render('update', [
             'model' => $model,
@@ -138,6 +139,10 @@ class ProductController extends Controller
 
                 if($model->validate()){
                     if($model->file){
+                        if(file_exists($model->image)){
+                            unlink($model->image);
+                        }
+
                         $path = 'uploads/'.time().'_'.$model->file->baseName.'.'.$model->file->extension;
                         if($model->file->saveAs($path)){
                             $model->image = $path;
