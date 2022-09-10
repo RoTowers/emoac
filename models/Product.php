@@ -34,8 +34,8 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'name', 'description', 'price'], 'required'],
-            [['id', 'units'], 'integer'],
+            [['name', 'description', 'price'], 'required'],
+            [['units'], 'integer'],
             [['price'], 'number'],
             [['created_at', 'updated_at', 'deleted_at'], 'safe'],
             [['name', 'description', 'image'], 'string', 'max' => 255],
@@ -50,11 +50,11 @@ class Product extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'description' => 'Description',
+            'name' => 'Nombre',
+            'description' => 'Descripción',
             'file' => 'Imagen',
-            'units' => 'Units',
-            'price' => 'Price',
+            'units' => 'Unidades',
+            'price' => 'Precio',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'deleted_at' => 'Deleted At',
