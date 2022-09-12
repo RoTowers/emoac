@@ -2,7 +2,7 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=127.0.0.1;dbname=emoac',
+    'dsn' => 'mysql:host=db;dbname=emoac',
     'username' => 'emoac',
     'password' => 'root',
     'charset' => 'utf8',

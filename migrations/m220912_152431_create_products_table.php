@@ -18,8 +18,7 @@ class m220912_152431_create_products_table extends Migration
             'description' => $this->string(255),
             'units' => $this->integer(4)->defaultValue(0)->unsigned()->notNull(),
             'price' => $this->integer(10)->defaultValue(0)->unsigned()->notNull(),
-            'image' => $this->string(255),
-            'created_at' => $this->timestamp()->defaultValue(['expression'=>'CURRENT_TIMESTAMP'])
+            'image' => $this->string(255)
         ]);
     }
 
