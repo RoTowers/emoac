@@ -6,4 +6,36 @@ services:
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
       - ./:/app:delegated
     ports:
-      - '8000:80'
+      - '80:80'
+    networks:
+     - emoac
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_DATABASE=emoac
+      - MYSQL_USER=emoac
+      - MYSQL_PASSWORD=emoac
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - emoacdb:/var/lib/mysql
+    #volumes:
+    #  - ~/mysql:/var/lib/mysql
+    networks:
+     - emoac
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+    - 8080:80
+    networks:
+    - emoac
+volumes:
+  emoacdb:
+networks:
+  emoac:
+    driver: bridge

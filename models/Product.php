@@ -37,7 +37,6 @@ class Product extends \yii\db\ActiveRecord
             [['name', 'description', 'price'], 'required'],
             [['units'], 'integer'],
             [['price'], 'number'],
-            [['created_at', 'updated_at', 'deleted_at'], 'safe'],
             [['name', 'description', 'image'], 'string', 'max' => 255],
             [['file'], 'file', 'extensions' => 'jpg,png,jpeg'],
         ];
@@ -54,10 +53,7 @@ class Product extends \yii\db\ActiveRecord
             'description' => 'Descripción',
             'file' => 'Imagen',
             'units' => 'Unidades',
-            'price' => 'Precio',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
-            'deleted_at' => 'Deleted At',
+            'price' => 'Precio'
         ];
     }
 }
