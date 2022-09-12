@@ -13,9 +13,6 @@ use Yii;
  * @property int $units
  * @property float $price
  * @property string $image
- * @property string|null $created_at
- * @property string|null $updated_at
- * @property string|null $deleted_at
  */
 class Product extends \yii\db\ActiveRecord
 {

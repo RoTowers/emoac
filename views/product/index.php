@@ -39,10 +39,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     'format' => 'html',
                     'value' => function($data) { return Html::img($data->image, ['width' => '60px']); },
                 ],
-                //'image',
-                //'created_at',
-                //'updated_at',
-                //'deleted_at',
                 [
                     'class' => ActionColumn::className(),
                     'urlCreator' => function ($action, Product $model, $key, $index, $column) {
